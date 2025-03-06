@@ -1,14 +1,11 @@
 package com.orm.entity;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 @Entity
 @Table(name="employee")
 @Component("emp")
@@ -24,6 +21,14 @@ public class Employee {
 	private String empSalary;
 	public int getEmpId() {
 		return empId;
+	}
+	@Autowired
+	public Employee(@Value("103") int empId,@Value("Naanu") String empName,@Value("GDN") String empLocation,@Value("900000") String empSalary) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.empLocation = empLocation;
+		this.empSalary = empSalary;
 	}
 	public String getEmpName() {
 		return empName;
@@ -46,14 +51,7 @@ public class Employee {
 	public void setEmpSalary(String empSalary) {
 		this.empSalary = empSalary;
 	}
-	@Autowired
-	public Employee(@Value("103") int empId,@Value("Naanu") String empName,@Value("GDN") String empLocation,@Value("900000") String empSalary) {
-		super();
-		this.empId = empId;
-		this.empName = empName;
-		this.empLocation = empLocation;
-		this.empSalary = empSalary;
-	}
+	
 	public Employee() {
 		super();
 	}
